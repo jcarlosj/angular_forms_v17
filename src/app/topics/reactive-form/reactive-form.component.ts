@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './reactive-form.component.css'
 })
 export class ReactiveFormComponent {
+
+  userForm: FormGroup;
+
+  constructor() {
+    this.userForm = new FormGroup({});
+  }
 
 }
