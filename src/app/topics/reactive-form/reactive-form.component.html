@@ -3,33 +3,35 @@
 <form
     class="user-form"
     [formGroup]="userForm"
+    (ngSubmit)="onSubmit()"
 >
     <div class="field">
         <label class="form-label">First name</label>
         <input type="text" class="form-control" formControlName="firstName">
         <div class="text-danger">
-            Looks good!
+            <div *ngIf="userForm.controls[ 'firstName' ].invalid && ( userForm.controls[ 'firstName' ].touched || userForm.controls[ 'firstName' ].dirty || isFormSubmitted )">
+                <small *ngIf="userForm.controls[ 'firstName' ].errors?.['required']">This is required</small> 
+            </div>
         </div>
     </div>
     <div class="field">
         <label class="form-label">Last name</label>
         <input type="text" class="form-control" formControlName="lastName">
         <div class="text-danger">
-            Looks good!
-        </div>
-    </div>
-    <div class="field">
-        <label class="form-label">Email</label>
-        <input type="text" class="form-control" formControlName="email">
-        <div class="text-danger">
-            Please choose a email
+            <div *ngIf="userForm.controls[ 'lastName' ].invalid && ( userForm.controls[ 'lastName' ].touched || userForm.controls[ 'lastName' ].dirty )">
+                <small *ngIf="userForm.controls[ 'lastName' ].errors?.['required']">This is required</small> 
+                <small *ngIf="userForm.controls[ 'lastName' ].errors?.['minlength']">Min 4 characters required</small>
+            </div>
         </div>
     </div>
     <div class="field">
         <label class="form-label">Username</label>
         <input type="text" class="form-control" formControlName="userName">
         <div class="text-danger">
-            Please choose a user name
+            <div *ngIf="userForm.controls[ 'userName' ].invalid && ( userForm.controls[ 'userName' ].touched || userForm.controls[ 'userName' ].dirty )">
+                <small *ngIf="userForm.controls[ 'userName' ].errors?.['required']">This is required</small> 
+                <small *ngIf="userForm.controls[ 'userName' ].errors?.['email']">Email is not valid</small>
+            </div>
         </div>
     </div>
     <div class="field">
@@ -64,5 +66,8 @@
                 You must agree before submitting
             </div>
         </div>
+    </div>
+    <div class="field">
+        <button class="btn btn-primary" type="submit">Submit Form</button>
     </div>
 </form>
