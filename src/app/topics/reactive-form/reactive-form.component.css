@@ -1,0 +1,31 @@
+.user-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 40%;
+}
+
+.field {
+    max-width: 100%;
+    width: 100%;
+}
+
+.form-label {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-control {
+    height: 1.4rem;
+    width: 98%;
+}
+
+.text-danger {
+    color: red;
+    font-size: .9rem;
+    font-style: italic;
+    height: 1.2rem;
+}

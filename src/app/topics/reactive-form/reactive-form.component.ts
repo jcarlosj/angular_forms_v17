@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,7 +11,16 @@ export class ReactiveFormComponent {
   userForm: FormGroup;
 
   constructor() {
-    this.userForm = new FormGroup({});
+    this.userForm = new FormGroup({
+      firstName: new FormControl( '' ),
+      lastName: new FormControl( '' ),
+      email: new FormControl( '' ),
+      userName: new FormControl( '' ),
+      city: new FormControl( '' ),
+      state: new FormControl( '' ),
+      zipCode: new FormControl( '' ),
+      isAgree: new FormControl( false )
+    });
   }
 
 }
